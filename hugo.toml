@@ -1,4 +1,0 @@
-baseURL = 'https://dalilaprile.github.io/portfolio/'
-languageCode = 'en-us'
-title = 'My New Hugo Site'
-disableKinds = ['taxonomy']
