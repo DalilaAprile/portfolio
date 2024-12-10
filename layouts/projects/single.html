@@ -1,0 +1,87 @@
+{{ define "main" }}
+{{ $ctx := . }}
+<div class="project-detail">
+  <div
+    class="project-detail__hero-image project-detail-bg-fixed"
+    style="background-image: url('{{ $ctx.Site.BaseURL }}{{ .Params.headerImage }}')"
+  ></div>
+  <div class="project-detail__content">
+    <div class="project-detail__caption poppins-light">
+      <h3 class="poppins-medium">{{ .Date | time.Format ":date_long" }}</h3>
+      <h2 class="poppins-semibold">{{ .Title }}</h2>
+      <p>{{ .Params.caption }}</p>
+    </div>
+    <div class="project-detail__description poppins-extralight">
+      {{ .Content }}
+    </div>
+  </div>
+  <div class="project-detail__user-research">
+    <h3 class="poppins-light">User Research</h3>
+    <div class="project-detail__user-research__feedbacks">
+      <div class="poppins-extralight">{{ .Params.userFeedback1 }}</div>
+      <div class="poppins-extralight">{{ .Params.userFeedback2 }}</div>
+      <div class="poppins-extralight">{{ .Params.userFeedback3 }}</div>
+    </div>
+    {{ if .Params.userResearch }}
+    <p class="poppins-extralight">
+      {{ .Params.userResearch | .RenderString }}
+    </p>
+    {{ end }}
+    {{ if .Params.personas }}
+    <h3 class="poppins-light">Personas</h3>
+    <div class="project-detail__images">
+      {{ range .Params.personas }}
+      <figure>
+        <a href="{{ $ctx.Site.BaseURL }}{{ . }}"><img src="{{ $ctx.Site.BaseURL }}{{ . }}" class="project-detail__image__zoom-reverse" /></a>
+      </figure>
+      {{ end }}
+    </div>
+    {{ end }}
+  </div>
+  <div
+    class="project-detail__product project-detail-bg-fixed"
+    style="background-image: url('{{ $ctx.Site.BaseURL }}{{ .Params.paperWireframe }}')"
+    >
+    <h3 class="poppins-light">The Product</h3>
+  </div>
+  <div class="project-detail__mockups">
+    <h3 class="poppins-light">Mockups evolution</h3>
+    <figure>
+    <a href="{{ $ctx.Site.BaseURL }}{{ .Params.mockups }}"><img src="{{ $ctx.Site.BaseURL }}{{ .Params.mockups }}" /></a>
+    </figure>
+  </div>
+  <div class="project-detail__screens">
+    <h3 class="poppins-light">Prototype</h3>
+    <div class="project-detail__images">
+        {{ range .Params.screens }}
+        <figure>
+          <a href="{{ $ctx.Site.BaseURL }}{{ . }}"><img src="{{ $ctx.Site.BaseURL }}{{ . }}" class="project-detail__image__zoom-reverse" /></a>
+        </figure>
+        {{ end }}
+    </div>
+    <figure>
+        <a href="{{ $ctx.Site.BaseURL }}{{ .Params.prototypeConnections }}">
+          <img src="{{ $ctx.Site.BaseURL }}{{ .Params.prototypeConnections }}" class="project-detail__image__zoom-reverse" />
+      </a>
+    </figure>
+    {{ range .Params.videos }}
+      <figure class="project-detail__video">
+        <video loop autoplay muted>
+          <source src="{{ $ctx.Site.BaseURL }}{{ . }}" type="video/webm">
+          Your browser does not support the video tag.
+        </video>
+      </figure>
+    {{ end }}
+  </div>
+  {{ $partial := .Params.additionalContentPartial | default "default-partial.html" }}
+  {{ partial $partial . }}
+  <div class="project-detail__last">
+    <h3 class="poppins-light">{{ .Params.lastTitle }}</h3>
+    <div class="project-detail__last__points">
+      {{ range .Params.lastPoints }}
+      <div class="poppins-extralight">{{ . | safeHTML }}</div>
+      {{ end }}
+    </div>
+  </div>
+</div>
+{{ end }}

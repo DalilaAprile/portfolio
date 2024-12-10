@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>http://192.168.1.72:1313/projects/exchangify-app/</loc>
+    <lastmod>2024-06-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://192.168.1.72:1313/projects/exchangify-website/</loc>
+    <lastmod>2024-08-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://192.168.1.72:1313/</loc>
+    <lastmod>2024-11-18T19:01:11+01:00</lastmod>
+  </url><url>
+    <loc>http://192.168.1.72:1313/profile/</loc>
+    <lastmod>2024-11-18T19:01:11+01:00</lastmod>
+  </url><url>
+    <loc>http://192.168.1.72:1313/projects/</loc>
+    <lastmod>2024-08-01T00:00:00+00:00</lastmod>
+  </url>
+</urlset>
